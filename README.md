@@ -16,24 +16,49 @@ In Java, text is stored using the `String` type. Recall that a `String` is a seq
 "JAVA IS COOL"
 ```
 
-Unlike primitive types (e.g., `int`, `double`, `char`), `String` has **built-in methods** that allow us to inspect and manipulate the text stored within.
+Unlike simple data types like `int` or `double`, a `String` comes with built-in abilities to work with text.  
 
-We will learn the most commonly used methods:
+We access these abilities using **methods**.
 
-- `length()`
-- `indexOf(String)`
-- `indexOf(String, int)`
-- `substring(int)`
-- `substring(int, int)`
-- `equals(String)`
-- `compareTo(String)`
+<br>
 
+## How to Use a String Method
+
+You’ve already seen something similar when using `Math.pow(...)` or `Math.round(...)`.
+
+When we use a method on a string, the format looks like this:
+
+```
+variableName.methodName(...)
+```
+
+We read that as:
+
+> “Take this string, and make it do something.”
+
+For example:
+
+```java
+String name = "Alice";
+System.out.println(name.length());
+```
+
+Here:
+- `name` is the variable or string we are working with
+- `.` means “use one of its built-in tools”
+- `length()` is the tool we're using
+
+Some methods need information **inside the parentheses** and some don’t. Some methods **give back a result** that we can use in a calculation or print.
+
+You do not need to memorize anything about how this works behind the scenes yet. For now, just remember:
+
+> String → dot → method → parentheses
 
 <br>
 
 ## How Strings Store Characters
 
-Each character in a String has a numbered **index**, starting at **0**.
+Each character in a string has a numbered **index**, starting at **0**.
 
 ```
 String phrase = "JAVA IS COOL";
@@ -43,87 +68,80 @@ String phrase = "JAVA IS COOL";
 |:---------:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 | Index     | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10| 11|
 
-
 <br>
 
 ## `.length()`
 
-Returns the **number of characters** in the string.
+Tells you **how many characters** are in the string.
 
 ```java
 String name = readLine("Enter your name: ");
 int count = name.length();
 System.out.println("Your name has " + count + " characters.");
 ```
-
 <br>
 
-## `.indexOf()` – Searching Within a String
+## `.indexOf()` – Finding Something Inside the String
 
-### Version 1: `indexOf(String)`
+### Version 1: `indexOf("text")`
 
-Finds the first occurrence of the target text.
+Finds the first place where the text appears.
 
 ```java
 String word = "TESTING";
 System.out.println(word.indexOf("S"));    // 2
 System.out.println(word.indexOf("TIN"));  // 3
-System.out.println(word.indexOf("T"));    // 0
 System.out.println(word.indexOf("Q"));    // -1 (not found)
 ```
 
-### Version 2: `indexOf(String, int)`
+### Version 2: `indexOf("text", startingIndex)`
 
-Searches **starting from a given index**.
+Starts searching **later in the string**.
 
 ```java
 String word = "TESTING";
-System.out.println(word.indexOf("T", 1)); // 3 (first T after index 1)
-System.out.println(word.indexOf("E", 2)); // -1 (no E after index 2)
-System.out.println(word.indexOf("N", 3)); // 5
+System.out.println(word.indexOf("T", 1)); // 3
 ```
 
 <br>
 
-## `.substring()` – Extracting Part of a String
+## `.substring()` – Taking Part of a String
 
-### Version 1: `substring(start)`
+### Version 1: `substring(startIndex)`
 
-Gets everything from the **start index** to the **end**.
+From the start index to the end.
 
 ```java
 String phrase = "substring method";
-System.out.println(phrase.substring(10));  // "method"
-System.out.println(phrase.substring(3));   // "string method"
+System.out.println(phrase.substring(10));
+// "method"
 ```
 
-### Version 2: `substring(start, end)`
+### Version 2: `substring(startIndex, endIndex)`
 
-Gets characters from **start index** up to **(end index - 1)**.
-
-The second number is **one past** where you want to stop.
+From the start index **up to but not including** the end index.
 
 ```java
-String phrase = "substring method";
-System.out.println(phrase.substring(0, 3));   // "sub"
-System.out.println(phrase.substring(3, 9));   // "string"
-System.out.println(phrase.substring(10, 16)); // "method"
+System.out.println(phrase.substring(0, 3));  // "sub"
 ```
 
 <br>
 
-## `.equals()` – Correct Way to Compare Strings
+## `.equals()` – Comparing Strings Properly
 
-Hold up! **Do not** use `==` to compare Strings. The comparison operator `==` is used to check memory locations. For Strings, we use `.equals()` to check *String content*.
+Do **not** use `==` to compare strings.
+
+`==` checks memory.  
+`.equals()` checks the actual text.
 
 ```java
 String a = "hello";
 String b = "jello";
 
 if (a.equals(b)) {
-    System.out.println("Same word");
+    System.out.println("Same");
 } else {
-    System.out.println("Different words");
+    System.out.println("Different");
 }
 ```
 
@@ -131,22 +149,17 @@ if (a.equals(b)) {
 
 ## `.compareTo()` – Alphabetical Order
 
-Returns:
+Tells us how two words compare alphabetically.
 
-| Result                          | Meaning |
-|---------------------------------|---------|
-| Negative number                 | first < second |
-| 0                               | first == second |
-| Positive number                 | first > second |
+| Output | Meaning |
+|--------|---------|
+| Negative number | first word comes *before* second |
+| 0 | same word |
+| Positive number | first word comes *after* second |
 
 ```java
-String first = "apple";
-String second = "banana";
-
-System.out.println(first.compareTo(second)); // negative value
+System.out.println("apple".compareTo("banana")); // negative
 ```
-
-This is often used for sorting words alphabetically.
 
 <br>
 
