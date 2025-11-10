@@ -70,7 +70,11 @@ String phrase = "JAVA IS COOL";
 
 <br>
 
-## `.length()`
+## String Methods Refrence
+
+
+
+### `.length()`
 
 Tells you **how many characters** are in the string.
 
@@ -81,9 +85,27 @@ System.out.println("Your name has " + count + " characters.");
 ```
 <br>
 
-## `.indexOf()` – Finding Something Inside the String
+### `.charAt()` – Getting a Single Character
 
-### Version 1: `indexOf("text")`
+Gets the character at a specific index.
+
+```java
+String word = "PIZZA";
+System.out.println(word.charAt(0)); // P
+System.out.println(word.charAt(4)); // A
+```
+
+To get the **last character**, combine with `.length()`:
+
+```java
+char last = word.charAt(word.length() - 1);
+```
+
+<br>
+
+### `.indexOf()` – Finding Something Inside the String
+
+#### Version 1: `indexOf("text")`
 
 Finds the first place where the text appears.
 
@@ -94,7 +116,7 @@ System.out.println(word.indexOf("TIN"));  // 3
 System.out.println(word.indexOf("Q"));    // -1 (not found)
 ```
 
-### Version 2: `indexOf("text", startingIndex)`
+#### Version 2: `indexOf("text", startingIndex)`
 
 Starts searching **later in the string**.
 
@@ -105,9 +127,9 @@ System.out.println(word.indexOf("T", 1)); // 3
 
 <br>
 
-## `.substring()` – Taking Part of a String
+### `.substring()` – Taking Part of a String
 
-### Version 1: `substring(startIndex)`
+#### Version 1: `substring(startIndex)`
 
 From the start index to the end.
 
@@ -117,7 +139,7 @@ System.out.println(phrase.substring(10));
 // "method"
 ```
 
-### Version 2: `substring(startIndex, endIndex)`
+#### Version 2: `substring(startIndex, endIndex)`
 
 From the start index **up to but not including** the end index.
 
@@ -127,7 +149,9 @@ System.out.println(phrase.substring(0, 3));  // "sub"
 
 <br>
 
-## `.equals()` – Comparing Strings Properly
+## Comparing Entire Strings
+
+### `.equals()` – Comparing Strings Properly
 
 Do **not** use `==` to compare strings.
 
@@ -147,7 +171,7 @@ if (a.equals(b)) {
 
 <br>
 
-## `.compareTo()` – Alphabetical Order
+### `.compareTo()` – Alphabetical Order
 
 Tells us how two words compare alphabetically.
 
