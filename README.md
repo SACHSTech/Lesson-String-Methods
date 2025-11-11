@@ -116,6 +116,8 @@ System.out.println(word.indexOf("TIN"));  // 3
 System.out.println(word.indexOf("Q"));    // -1 (not found)
 ```
 
+Note that `.indexOf()` returns a special value of `-1` when the pattern is **not found** in the string.
+
 #### Version 2: `indexOf("text", startingIndex)`
 
 Starts searching **later in the string**.
@@ -261,6 +263,8 @@ Ask the user for a sentence and print the same sentence without any spaces.
 Enter text: I love bubble tea
 Output: Ilovebubbletea
 ```
+
+HINT: Remember that `.indexOf(searchPattern)` returns a value of `-1` when the `searchPattern` is not found in the string.
 
 <br>
 
