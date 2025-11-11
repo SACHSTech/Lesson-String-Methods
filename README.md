@@ -264,7 +264,7 @@ Enter text: I love bubble tea
 Output: Ilovebubbletea
 ```
 
-HINT: Remember that `.indexOf(searchPattern)` returns a value of `-1` when the `searchPattern` is not found in the string.
+HINT: Remember that `.indexOf(pattern)` returns a value of `-1` when the `pattern` is not found in the string.
 
 <br>
 
